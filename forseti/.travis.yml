@@ -1,0 +1,25 @@
+language: python
+python:
+  - '3.3'
+  - '3.4'
+  - '3.5'
+  - '3.6'
+
+install:
+  - pip install coveralls
+  - pip install coverage
+
+script:
+  - coverage run --source forseti setup.py test
+
+after_success:
+  - coveralls
+
+deploy:
+  provider: pypi
+  user: Master_Odin
+  password:
+    secure: excHXeFQRgQTC8cWuZvhRhdrNehCj3dgqORcQ8LgBQmn35yJT3gsFP4wdB7FYhDex2ir6PlQmz4gVOwSOaX5jHblhUHMlmJoJXKwRY29WZ/oqDjBZ1wmmSrp+J20Dl+YRBB4MTWtRCgvcCkZyget8RuEl3h42zyvuno6uJJQm/0=
+  on:
+    repo: MasterOdin/forseti
+    python: 3.3
